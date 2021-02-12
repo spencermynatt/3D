@@ -18,7 +18,9 @@ const char* vertex_shader =
 "void main()\n"
 "{\n"
 "new_texture_coordinates = texture_coordinates;\n"
-"gl_Position = projection * view * model * vec4(position, 1);\n"
+"gl_Position = projection * view * model * vec4(position, 1);\n" 
+//this always has to be in the order
+	
 "}\n";
 const char* fragment_shader =
 "#version 430 core\n"
@@ -137,9 +139,26 @@ int main() {
 		glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
+				//[ 1, 0, 0, TX,        
+				//  0, 1, 0, TY,   all of these start of as this matrix
+				//  0, 0, 1, TZ,       
+                              //    0, 0, 0, 1 ]        
 		model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+		//model gets set equal to a rotation matrix, and this is repsonsible for rotating everything single vertice on the cubee
+		//and eventually this matrix will get multiplied
+		//angle to rotate on
+		//axis we want to rotate on
 		view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+		//this will move cube slighlty when multiplied by all matrices
 		projection = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
+		//projection gets set equal to perspective matrix
+		//field of view is first aspect, 45,
+		//aspect ratio is 800/600, width and height
+		//near clipping plane, how near does screen just clip something
+		//far clipping, how far does screen clip
+	
+		
+		
 		glUseProgram(program);
 		unsigned int modelLoc = glGetUniformLocation(program, "model");
 		unsigned int viewLoc = glGetUniformLocation(program, "view");

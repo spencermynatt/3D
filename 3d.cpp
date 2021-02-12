@@ -57,7 +57,8 @@ int main() {
 	glAttachShader(program, vertex);
 	glAttachShader(program, fragment);
 	glLinkProgram(program);
-
+        glEnable(GL_DEPTH_TEST);//stores all its depth information in a z-buffer,
+	//OpenGL draws your cube triangle-by-triangle, fragment by fragment,, if theres no gl depth it will overwrite any pixel color that may have already been there
 	float vertices[]{
 		 -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
@@ -131,7 +132,7 @@ int main() {
 	glGenerateMipmap(GL_TEXTURE_2D);
 	while(!glfwWindowShouldClose(pointer_to_window))
 	{
-		glClearColor(0.2f, 0.7f, 0.5f, 2.0f);
+		glClearColor(0.2f, 0.7f, 0.5f, 2.0f | GL_DEPTH_BUFFER_BIT);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glBindTexture(GL_TEXTURE_2D, texture);
 

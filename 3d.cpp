@@ -162,6 +162,7 @@ int main() {
 		//displayed on image plane
 		//do this, we need use the image plan to view the object but we need to take the object and display it
 		//do x(image plane) = x(objectplan)/z(objectplane)
+		// y(image plan) = y(objectplane)/z(objectplane)
 	//projection matrix
 		
 		//ar = aspect ratio

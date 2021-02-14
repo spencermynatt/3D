@@ -160,6 +160,7 @@ int main() {
 		
 		//this matrix is useful but if you want to really just caclulate whats
 		//displayed on image plane
+		//do this, we need use the image plan to view the object but we need to take the object and display it
 		//do x(image plane) = x(objectplan)/z(objectplane)
 	//projection matrix
 		

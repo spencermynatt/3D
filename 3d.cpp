@@ -158,10 +158,10 @@ int main() {
 		//near clipping plane, how near does screen just clip something
 		//far clipping, how far does screen clip
 	//projection matrix
-	 // 2n/r-1,   0,  r+1/r+1,  0
-         // 0,     2n/t-b, t+b/t-b, 0
-        //  0,      0,  -(f+n)/f-n  -2fn/f-n
-	//  0,      0,    -1,           0
+	 // 1/ar*tan(a/2),   0,  0,  0
+         // 0,     1/tan(a/2),   0,   0
+        //  0,      0,  -NearZ-FarZ/NearZ-FarZ, 2*FarZ*NearZ/NearZ-FarZ
+	//  0,      0,        1,                     0
 		
 		glUseProgram(program);
 		unsigned int modelLoc = glGetUniformLocation(program, "model");

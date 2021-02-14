@@ -157,7 +157,14 @@ int main() {
 		//aspect ratio is 800/600, width and height
 		//near clipping plane, how near does screen just clip something
 		//far clipping, how far does screen clip
+		
+		//this matrix is useful but if you want to really just caclulate whats
+		//displayed on image plane
+		//do x(image plane) = x(objectplan)/z(objectplane)
 	//projection matrix
+		
+		//ar = aspect ratio
+		//a = fov
 	 // 1/ar*tan(a/2),   0,  0,  0
          // 0,     1/tan(a/2),   0,   0
         //  0,      0,  -NearZ-FarZ/NearZ-FarZ, 2*FarZ*NearZ/NearZ-FarZ
